@@ -23,7 +23,7 @@ def display_latest_entry(entry):
     hourly_range = re.search(r'<b>Hourly Range</b>:\s*([\d\.\$-]+)', entry.description)
     hourly_range = hourly_range.group(1) if hourly_range else 'Not specified'
 
-    budget_match = re.search(r'<b>Budget</b>:\s*\$([\d\.]+)', entry.description)
+    budget_match = re.search(r'<b>Budget</b>:\s*\$([\d,\.]+)', entry.description)
     budget = f"${budget_match.group(1)}" if budget_match else "Not specified"
 
     country = re.search(r'<b>Country</b>:\s*([\w\s]+)', entry.description)
